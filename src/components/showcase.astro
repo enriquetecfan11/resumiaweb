@@ -1,0 +1,38 @@
+---
+import ContentSection from "~/components/content-section.astro";
+
+// Definir el tipo PriceItem si estás usando TypeScript
+type PriceItem = {
+  plan: string;
+  price: string;
+  feature1: string;
+  feature2: string;
+  feature3?: string;
+  stripePriceId?: string;
+};
+
+const prices: Array<PriceItem> = [
+  {
+    plan: "Seccion en construccion",
+    price: "Si quieres saber mas sobre los precios, contacta con nosotros",
+    feature1: "Correo: kikerodrivela@gmail.com",
+    feature2: "Telegram: @kikerodrivela",
+  },
+];
+
+
+---
+
+<ContentSection client:load title="Precios" id="showcase">
+    <div class="border p-6 rounded-lg shadow-lg text-center w-full max-w-md mx-auto mt-8">
+      <h2 class="text-2xl font-bold mb-4">Sección en construcción</h2>
+      <p class="mb-4">Si quieres saber más sobre los precios, contacta con nosotros:</p>
+      <ul class="text-left">
+        <li class="mb-2">📧 Correo: <a href="mailto:kikerodrivela@gmail.com" class="">kikerodrivela@gmail.com</a></li>
+        <li>💬 Telegram: <a href="https://t.me/enriquetecfan" class="">@kikerodrivela</a></li>
+      </ul>
+    </div>
+</ContentSection>
+
+
+
