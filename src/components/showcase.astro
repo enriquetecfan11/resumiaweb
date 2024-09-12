@@ -1,38 +1,65 @@
 ---
 import ContentSection from "~/components/content-section.astro";
-
-// Definir el tipo PriceItem si estás usando TypeScript
-type PriceItem = {
-  plan: string;
-  price: string;
-  feature1: string;
-  feature2: string;
-  feature3?: string;
-  stripePriceId?: string;
-};
+import { Icon } from "astro-icon/components";
 
 const prices: Array<PriceItem> = [
   {
-    plan: "Seccion en construccion",
-    price: "Si quieres saber mas sobre los precios, contacta con nosotros",
-    feature1: "Correo: kikerodrivela@gmail.com",
-    feature2: "Telegram: @kikerodrivela",
+    plan: "Basico",
+    price: "Gratis",
+    features: [
+      { description: "5 mensajes por mes" },
+      { description: "IA Artificial basica" },
+      { description: "Soporte basico" },
+    ],
+    icon: "mdi:account",
+  },
+  {
+    plan: "Profesional",
+    price: "5€ / mes",
+    features: [
+      { description: "Todo lo del plan Basico" },
+      { description: "Mensajes ilimitados" },
+      { description: "IA Artificial avanzada" },
+      { description: "Soporte avanzado" },
+      {
+        description:
+          "El bot te envía un mensaje para actualizar al plan profesional cuando superas los 5 mensajes.",
+      },
+    ],
+    icon: "mdi:star",
   },
 ];
-
-
 ---
 
-<ContentSection client:load title="Precios" id="showcase">
-    <div class="border p-6 rounded-lg shadow-lg text-center w-full max-w-md mx-auto mt-8">
-      <h2 class="text-2xl font-bold mb-4">Sección en construcción</h2>
-      <p class="mb-4">Si quieres saber más sobre los precios, contacta con nosotros:</p>
-      <ul class="text-left">
-        <li class="mb-2">📧 Correo: <a href="mailto:kikerodrivela@gmail.com" class="">kikerodrivela@gmail.com</a></li>
-        <li>💬 Telegram: <a href="https://t.me/enriquetecfan" class="">@kikerodrivela</a></li>
-      </ul>
+<ContentSection client:load title="Precios" id="pricing">
+  <div class="">
+    <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      {
+        prices.map(({ plan, price, features, icon }) => (
+          <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+            <div class="size-16 rounded-full border-2 border-current p-3">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <h2 class="text-center font-extrabold text-3xl">{plan}</h2>
+            <p class="text-center text-primary text-4xl">{price}</p>
+            <ul class="mt-4 space-y-2">
+              {features.map((feature: { description: string }) => (
+                <li class="text-center text-offset">{feature.description}</li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+    <!-- Botón centrado debajo de las cards -->
+    <div class="mt-8 flex justify-center">
+      <a
+        href="https://t.me/ResumIA_bot"
+        target="_blank"
+        class="rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+      >
+        Prueba ResumIA
+      </a>
     </div>
+  </div>
 </ContentSection>
-
-
-
