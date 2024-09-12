@@ -2,6 +2,10 @@
 import { Icon } from "astro-icon/components";
 import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
+import ResumiaLogo from "~/assets/resumialogo2.png";
+import { Image } from "astro:assets";
+
+
 
 const navItems: Array<NavItem> = [
   { title: "Funcionamiento", url: "#features" },
@@ -16,8 +20,11 @@ const navItems: Array<NavItem> = [
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">ResumIA</h1>
-    <!-- <Icon name="logomark" class="size-10" /> -->
-    <!-- <Icon name="wordmark" class="hidden h-4 sm:block" /> -->
+    <Image
+        class="h-8 w-auto"
+        src={ResumiaLogo}
+        alt="ResumIA"
+      />
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -54,11 +61,11 @@ const navItems: Array<NavItem> = [
               class="btn"
               aria-label="Close navigation"
             >
-              <!-- <Icon name="mdi:close" class="size-8" /> -->
+              <Icon name="mdi:close" class="size-8" />
             </button>
           </header>
           <div class="flex justify-center">
-            <!-- <Icon name="logomark" class="size-16" /> -->
+            <Icon name="logomark" class="size-16" />
           </div>
           <nav>
             <ul class="flex flex-col">

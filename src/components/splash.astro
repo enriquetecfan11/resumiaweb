@@ -1,11 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-import astronautImage from "~/assets/astronaut.png";
-import resumialogo from "~/assets/resumialogo2.png";
-import HeroImage from "~/components/hero-image.astro";
+import ResumiaLogo from "~/assets/resumialogo2.png";
 import Starfield from "~/components/starfield.astro";
-import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -19,9 +15,8 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     <h2
       class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <!-- <Icon name="logomark" class="size-20 text-white md:size-32" /> -->
       <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-6xl md:text-8xl"
+        class="gradient-text text-center font-extrabold tracking-tighter text-6xl md:text-4xl"
       >
         ResumIA
         <br />
@@ -34,11 +29,11 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     >
       <Image
         class="h-full w-full object-cover"
-        src={resumialogo}
+        src={ResumiaLogo}
         widths={widths}
         sizes={sizes}
         loading="eager"
-        alt="A floating astronaut in a space suit"
+        alt="Logo de ResumIA"
       />
     </div>
   </div>
